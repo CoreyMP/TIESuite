@@ -1,0 +1,34 @@
+TIE Suite 1.2 - Change Log
+
+Cleaned up UI:
+
+Themes
+- Removed useless query for Template.
+-- Software now uses Theme Master List as default for generating new themes.
+- Removed adding custom behavior functionality
+- Consolidated naming new theme into the same window as the Template
+- Removed Success window
+-- New Theme now generated upon hitting finish
+- Made UI clearer
+
+Workbook
+- Removed Success window
+-- New Workbook now generated upon hitting Create File
+- Made UI clearer
+
+Projects
+- Instructions clearer for saving a new project
+- Made UI clearer
+
+Loading Files:
+
+- All file loading queries now open a file-browser in the correct window
+
+Icon Update:
+
+- Added bow tie icon to project for flair
+
+
+TIE Suite 1.1 - Change Log
+
+Initial Release

@@ -1,0 +1,9 @@
+et-xmlfile==1.0.1
+future==0.16.0
+jdcal==1.3
+MplayerCtrl==0.3.3
+openpyxl==2.4.1
+pathlib==1.0.1
+PyInstaller==3.2.1
+pypiwin32==219
+python-vlc==1.1.2

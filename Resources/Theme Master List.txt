@@ -1,0 +1,131 @@
+1.1,1.1,Goal setting (behavior),2
+1.2,1.2,Problem solving,2
+1.3,1.3,Goal setting (outcome),2
+1.4,1.4,Action planning,2
+1.5,1.5,Review behavior goal(s),2
+1.6,1.6,Discrepancy between current behavior and goal,2
+1.7,1.7,Review outcome goal(s),2
+1.8,1.8,Behavioral contract,2
+1.9,1.9,Commitment,2
+2.1,2.1,Monitoring of behavior by others without feedback,2
+2.2,2.2,Feedback on behavior,2
+2.3,2.3,Self-monitoring of behavior,2
+2.4,2.4,Self-monitoring of outcome(s) of behavior,2
+2.5,2.5,Monitoring outcome(s) of behavior by others without feedback,2
+2.6,2.6,Biofeedback,2
+2.7,2.7,Feedback on outcome(s) of behavior,2
+3.1,3.1,Social support (unspecified),2
+3.2,3.2,Social support (practical),2
+3.3,3.3,Social support (emotional),2
+4.1,4.1,Instruction on how to perform a behavior,2
+4.2,4.2,Information about antecedents,2
+4.3,4.3,Re-attribution,2
+4.4,4.4,Behavioral experiments,2
+5.1,5.1,Information about health consequences,2
+5.2,5.2,Salience of consequences,2
+5.3,5.3,Information about social and environmental consequences,2
+5.4,5.4,Monitoring of emotional consequences,2
+5.5,5.5,Anticipated regret,2
+5.6,5.6,Information about emotional consequences,2
+6.1,6.1,Demonstration of the behavior,2
+6.2,6.2,Social comparison,2
+6.3,6.3,Information about others approval,2
+7.1,7.1,Prompts/cues,2
+7.2,7.2,Cue signalling reward,2
+7.3,7.3,Reduce prompts/cues,2
+7.4,7.4,Remove access to the reward,2
+7.5,7.5,Remove aversive stimulus,2
+7.6,7.6,Satiation,2
+7.7,7.7,Exposure,2
+7.8,7.8,Associative learning,2
+8.1,8.1,Behavioral practice/ rehearsal,2
+8.2,8.2,Behavior substitution,2
+8.3,8.3,Habit formation,2
+8.4,8.4,Habit reversal,2
+8.5,8.5,Overcorrection,2
+8.6,8.6,Generalisation of a target behavior,2
+8.7,8.7,Graded tasks,2
+9.1,9.1,Credible source,2
+9.2,9.2,Pros and cons,2
+9.3,9.3,Comparative imagining of future outcomes,2
+10.1,10.1,Material incentive (behavior),2
+10.2,10.2,Material reward (behavior),2
+10.3,10.3,Non-specific reward,2
+10.4,10.4,Social reward,2
+10.5,10.5,Social incentive,2
+10.6,10.6,Non-specific incentive,2
+10.7,10.7,Self-incentive,2
+10.8,10.8,Incentive (outcome),2
+10.9,10.9,Self-reward,2
+10.10,10.10,Reward (outcome),2
+10.11,10.11,Future punishment,2
+11.1,11.1,Pharmacological support,2
+11.2,11.2,Reduce negative emotions b,2
+11.3,11.3,Conserving mental resources,2
+11.4,11.4,Paradoxical instructions,2
+12.1,12.1,Restructuring the physical environment,2
+12.2,12.2,Restructuring the social environment,2
+12.3,12.3,Avoidance/reducing  exposure to cues for the behavior,2
+12.4,12.4,Distraction,2
+12.5,12.5,Adding objects to the environment,2
+12.6,12.6,Body changes,2
+13.1,13.1,Identification of self as role model,2
+13.2,13.2,Framing/reframing,2
+13.3,13.3,Incompatible beliefs,2
+13.4,13.4,Valued self-identity,2
+13.5,13.5,Identity associated with changed behavior,2
+14.1,14.1,Behavior cost,2
+14.2,14.2,Punishment,2
+14.3,14.3,Remove reward,2
+14.4,14.4,Reward approximation,2
+14.5,14.5,Rewarding completion,2
+14.6,14.6,Situation-specific reward,2
+14.7,14.7,Reward incompatible behavior,2
+14.8,14.8,Reward alternative behavior,2
+14.9,14.9,Reduce reward frequency,2
+14.10,14.10,Remove punishment,2
+15.1,15.1,Verbal persuasion about capability,2
+15.2,15.2,Mental rehearsal of successful performance,2
+15.3,15.3,Focus on past success,2
+15.4,15.4,Self-talk,2
+16.1,16.1,Imaginary punishment,2
+16.2,16.2,Imaginary reward,2
+16.3,16.3,Vicarious consequences,2
+17.1,MI1,Autonomy,2
+17.2,MI2,Competence,2
+17.3,MI3,Relatedness,2
+17.4,MI4,Reflection,2
+17.5,MI5,agenda mapping,2
+17.6,MI6,review a typical day,2
+17.7,MI7,permission to provide information,2
+17.8,MI8,elicit-provide-elicit,2
+17.9,MI9,See 9.2,2
+17.91,MI10,importance ruler,2
+18.1,MI11,confidence ruler,2
+18.2,MI12,Darn questions,2
+18.3,MI13,see 9.3,2
+18.4,MI14,looking back,2
+18.5,MI15,hypothetical thinking,2
+18.6,MI16,See 5.5,2
+18.7,MI17,see 15.3,2
+18.8,MI18,see 13.4,2
+18.9,MI19,brainstorming,2
+18.91,MI20,see 1.2,2
+19.1,MI21,see 13.4,2
+19.2,MI22,see 13.2,2
+19.3,MI23,double-sided reflection,2
+19.4,MI24,emphasize autonomy,2
+19.5,MI25,overshooting,2
+19.6,MI26,undershooting,2
+19.7,MI27,coming alongside,2
+19.8,MI28,shifting focus,2
+19.9,MI29,agreement with a twist,2
+19.91,MI30,see 6.2,2
+20.1,MI31,see 1.3,2
+20.2,MI32,consider change options,2
+20.3,MI33,see 1.4,2
+20.4,MI34,see 1.5,2
+20.5,MI35,see 3.1,2
+20.6,MI36,see 3.3,2
+20.7,MI37,see 1.7,2
+20.8,MI38,see 1.9,2
