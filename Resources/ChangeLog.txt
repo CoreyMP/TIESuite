@@ -28,6 +28,10 @@ Icon Update:
 
 - Added bow tie icon to project for flair
 
+Resources Folder:
+
+- Added a resources folder to hold extra files for running the software suite
+
 
 TIE Suite 1.1 - Change Log
 
