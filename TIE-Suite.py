@@ -464,6 +464,7 @@ def playerInterface(player, observed):
 
     #Setting up button Widgets for container for GUI
     for (key,items) in sorted(theme.iteritems(), key = lambda (x,y):float(x)):
+        print(items[0] + "  ---  " + items[1] + "  ---  " + items[2])
         but(items[0], items[1], items[2], frame, player, observed)
 
 def themeLine(line, theme):
@@ -522,7 +523,7 @@ def buildTheme():
     frame.pack()
     #Setting up button Widgets for container for GUI
     for (key,items) in sorted(themeBuild.iteritems(), key = lambda (x,y):float(x)):
-        buttonDict[key] = themeBut(items[0], items[1], items[1], frame)
+        buttonDict[key] = themeBut(items[0], items[1], items[2], frame)
 
     #b = ttk.Button(pop1, text="Add Custom Behaviors", command=lambda: queryBehavior(pop1))
     #b.pack()
