@@ -43,6 +43,7 @@ class ttkTimer(Thread):
     def get(self):
         return self.iters
 
+    #Borrowed/Adapted from one of the open-source examples bundled with python-vlc
 class Player(Frame):
     """The main window has to deal with events.
     """
@@ -265,6 +266,7 @@ class Player(Frame):
     def get_time(self):
         return self.player.get_time()
 
+    #Button class, contains data and write to excel functionality
 class but:
 
     def __init__ (self, key, name, type, master, player, observed):
@@ -333,6 +335,7 @@ class but:
                 ws.cell(row = index, column = 7).value = self.time4
                 wb.save(file)
 
+    #Creates the buttons used by the TIE Coder
 class themeBut:
     def __init__ (self, key, name, type, master):
         self.key = key
@@ -358,6 +361,7 @@ class themeBut:
     def getUsed(self):
         return self.used
 
+    #Used to get different time points in the playuer
 def getTime(player, type):
     time = player.get_time()
     t = int(time/1000)
@@ -383,6 +387,7 @@ def Tk_get_root():
         Tk_get_root.root= Tk()  #initialization call is inside the function
     return Tk_get_root.root
 
+    #Basic quit function
 def _quit():
     #print("_quit: bye")
     root = Tk_get_root()
@@ -391,6 +396,7 @@ def _quit():
                     # Fatal Python Error: PyEval_RestoreThread: NULL tstate
     os._exit(1)
 
+    #Read a project file and load sub-files into memory
 def loadProj(master):
     projFile = askopenfilename(initialdir = "./Projects", title ="Select a Project")
 
@@ -407,6 +413,7 @@ def loadProj(master):
             excelFile = line.split(";")[2]
             vidFile = line.split(";")[3]
 
+    #Query user for project name and pass name to projSave
 def saveProj(master):
 
     pop = Tk()
@@ -430,8 +437,10 @@ def saveProj(master):
     b = ttk.Button(frame, text="Create Project", command=lambda: projSave("" + e.get(), pop))
     b.pack()
 
+    #Save currently loaded files into project file based on input for later. 
 def projSave(input, pop):
     global themeFile
+    global themeFile2
     global excelFile
     global vidFile
 
@@ -441,6 +450,7 @@ def projSave(input, pop):
 
     pop.destroy()
 
+    #Tkinter interface for TIE Coder -- THIS NEEDS TO BE RENAMED
 def playerInterface(player, observed):
 
     pop =  Tk()
@@ -467,6 +477,8 @@ def playerInterface(player, observed):
         print(items[0] + "  ---  " + items[1] + "  ---  " + items[2])
         but(items[0], items[1], items[2], frame, player, observed)
 
+    #Reads a theme file and parses it into a dictionary
+    #to be used to construct the buttons
 def themeLine(line, theme):
     line=line.strip()
     theme[line.split(",")[0]] = [line.split(",")[1]]
@@ -474,9 +486,7 @@ def themeLine(line, theme):
     theme[line.split(",")[0]].append(line.split(",")[3])
     return theme
 
-#Reads a theme file and parses it into a dictionary
-#to be used to construct the buttons
-
+    #Parses the Theme's file into lines to be passed to themeLine for dictionary writing
 def themeRead(file):
 
     theme = {}
@@ -490,6 +500,7 @@ def themeRead(file):
     #print(vc)
     return theme
 
+    #Loads themes into memory for Client/Counsellor
 def loadTheme(master, observed):
     #Querying user for theme.txt file
     global themeFile
@@ -499,13 +510,15 @@ def loadTheme(master, observed):
     else:
         themeFile2 = tkFileDialog.askopenfilename(initialdir = "./Themes", title = "Select a Theme for the Counsellor")
 
+    #Uses Master List to generate new custom themes
 def importTheme(master):
     global themeBuild
     themeBuildFile = "./Resources/Theme Master List.txt"
     themeBuild = themeRead(themeBuildFile)
     buildTheme()
     #master.destroy()
-
+    
+    #Builds the themeBuild dictionary to be used by newTheme
 def buildTheme():
     global themeBuild
     global gridi
@@ -540,6 +553,7 @@ def buildTheme():
     b1 = ttk.Button(pop1, text="Finish", command=lambda: newTheme(e.get(), pop1))
     b1.pack()
 
+    #Writes the themeBuild theme into a new Theme file
 def newTheme(input, pop3):
     global themeBuild
     global buttonDict
@@ -555,11 +569,12 @@ def newTheme(input, pop3):
         
     pop3.destroy()
 
+    #Loads a given workbook into memory
 def loadExcel(master):
     global excelFile
     excelFile = tkFileDialog.askopenfilename(initialdir = "./Workbooks", title = "Select a Workbook")
-    init(excelFile)
 
+    #Creates newExcel string for the init function 
 def newExcel(input, pop):
     #Generating Blank Workbook
     wb = Workbook()
@@ -572,6 +587,7 @@ def newExcel(input, pop):
     pop.destroy()
     #Confirmation of File Creation
 
+    #Takes user input and passes to newExcel to make a new workbook based on input
 def createExcel(master):
     global excelFile
 
@@ -598,6 +614,7 @@ def createExcel(master):
     b = Button(frame, text="Create Workbook", width=15, command=lambda: newExcel(e.get(), pop))
     b.pack()
 
+    #Initializes a new Workbook and Writes in coloumn headers. SHould prob rename this.
 def init(file):
     wb = load_workbook(file)
     ws = wb.active
@@ -612,6 +629,7 @@ def init(file):
 
 
 
+    #Creates the vidFile string for the player
 def vidLoad(master):
     global vidFile
     #p = pathlib.Path(os.path.expanduser("~"))
