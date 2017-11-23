@@ -298,22 +298,22 @@ class but:
         global gridi
         global gridj
         global excelFile
-        # print(self.type)
+        #print(self.type)
         if self.type == "1":
             b = Button(
-                master, text=key, command=lambda: self.createEntry(excelFile, self.time, self.time),
-                height=2, width=4
+                master, text = key, command = lambda: self.createEntry(excelFile,self.time, self.time),
+                height = 2, width =  4
                 )
         else:
             b = Checkbutton(
-                master, text=key, command=lambda: self.createEntry(excelFile, self.time, self.time),
-                height=2, width=4, indicatoron=0
+                master, text = key, command = lambda: self.createEntry(excelFile,self.time, self.time),
+                height = 2, width = 4, indicatoron = 0
                 )
 
-        b.grid(row=gridi, column=(gridj % 10))
-        # print(gridi)
+        b.grid(row = gridi, column = (gridj%10))
+        #print(gridi)
         gridj += 1
-        if (gridj % 10) == 0:
+        if (gridj%10) == 0:
             gridi += 1
 
     def createEntry(self, file, time, time2):
@@ -321,33 +321,34 @@ class but:
             wb = load_workbook(file)
             ws = wb.active
             index = ws.max_row + 1
-            ws.cell(row=index, column=1).value = self.observed
-            ws.cell(row=index, column=2).value = self.key
-            ws.cell(row=index, column=3).value = self.name
-            ws.cell(row=index, column=4).value = getTime(self.player, 1)
-            ws.cell(row=index, column=5).value = ""
-            ws.cell(row=index, column=6).value = getTime(self.player, 2)
-            ws.cell(row=index, column=7).value = ""
+            ws.cell(row = index, column = 1).value = self.observed
+            ws.cell(row = index, column = 2).value = self.key
+            ws.cell(row = index, column = 3).value = self.name
+            ws.cell(row = index, column = 4).value = getTime(self.player, 1)
+            ws.cell(row = index, column = 5).value = ""
+            ws.cell(row = index, column = 6).value = getTime(self.player, 2)
+            ws.cell(row = index, column = 7).value = ""
             wb.save(file)
         else:
             if self.active == 0:
-                self.time = getTime(self.player, 1)
-                self.time3 = getTime(self.player, 2)
+                self.time = getTime(self.player,1)
+                self.time3 = getTime(self.player,2)
                 self.active = 1
             else:
-                self.time2 = getTime(self.player, 1)
-                self.time4 = getTime(self.player, 2)
+                self.time2 = getTime(self.player,1)
+                self.time4 = getTime(self.player,2)
                 self.active = 0
                 wb = load_workbook(file)
                 ws = wb.active
                 index = ws.max_row + 1
-                ws.cell(row=index, column=1).value = self.observed
-                ws.cell(row=index, column=2).value = self.key
-                ws.cell(row=index, column=3).value = self.name
-                ws.cell(row=index, column=4).value = self.time
-                ws.cell(row=index, column=5).value = self.time2
-                ws.cell(row=index, column=6).value = self.time3
-                ws.cell(row=index, column=7).value = self.time4
+                ws.cell(row = index, column = 1).value = self.observed
+                ws.cell(row = index, column = 2).value = self.key
+                ws.cell(row = index, column = 3).value = self.name
+                ws.cell(row = index, column = 4).value = self.time
+                ws.cell(row = index, column = 5).value = self.time2
+                ws.cell(row = index, column = 6).value = self.time3
+                ws.cell(row = index, column = 7).value = self.time4
+                ws.cell(row = index, column = 8).value = (self.time4 - self.time3)
                 wb.save(file)
 
 
@@ -532,17 +533,12 @@ def playerInterface(player, observed):
         theme = themeRead(themeFile)
     else:
         theme = themeRead(themeFile2)
-    global gridi
-    global gridj
-    gridi = 0
-    gridj = 0
 
     frame = Frame(pop)
     frame.pack_propagate(0)
     frame.pack()
     # Setting up button Widgets for container for GUI
     for (key, items) in sorted(theme.iteritems(), key=lambda (x, y):float(x)):
-        print(items[0] + "  ---  " + items[1] + "  ---  " + items[2])
         but(items[0], items[1], items[2], frame, player, observed)
 
 
@@ -696,13 +692,22 @@ def createExcel(master):
 def init(file):
     wb = load_workbook(file)
     ws = wb.active
-    ws.cell(row=2, column=1).value = "Subject"
-    ws.cell(row=2, column=2).value = "Code"
-    ws.cell(row=2, column=3).value = "Code-Name"
-    ws.cell(row=2, column=4).value = "Time of Onset"
-    ws.cell(row=2, column=5).value = "Time of Offset"
-    ws.cell(row=2, column=6).value = "Onset in Secs"
-    ws.cell(row=2, column=7).value = "Offset in Secs"
+    ws.cell(row = 2, column = 1).value = "Observed"
+    ws.column_dimensions["A"].width = 20
+    ws.cell(row = 2, column = 2).value = "ID"
+    ws.column_dimensions["B"].width = 8
+    ws.cell(row = 2, column = 3).value = "Behavior Name"
+    ws.column_dimensions["C"].width = 40
+    ws.cell(row = 2, column = 4).value = "Time of Onset"
+    ws.column_dimensions["D"].width = 15
+    ws.cell(row = 2, column = 5).value = "Time of Offset"
+    ws.column_dimensions["E"].width = 15
+    ws.cell(row = 2, column = 6).value = "Onset in Secs"
+    ws.column_dimensions["F"].width = 15
+    ws.cell(row = 2, column = 7).value = "Offset in Secs"
+    ws.column_dimensions["G"].width = 15
+    ws.cell(row = 2, column = 8).value = "Duration in Secs"
+    ws.column_dimensions["H"].width = 15
     wb.save(file)
 
 
