@@ -62,13 +62,11 @@ class Player(Frame):
         loadW = StringVar()
         loadV = StringVar()
         
-        
         if title == None:
             title = "Tie Sweet 1.0"
         self.parent.title(title)
 
         # Menu Bar
-        #   File Menu
         menubar = Menu(self.parent)
         self.parent.config(menu=menubar)
 
@@ -102,19 +100,19 @@ class Player(Frame):
         newMenu.add_command(label="Create New Workbook", command=lambda: createExcel(parent))
         menubar.add_cascade(label="Create Files", menu=newMenu)
         
-        #Show the User which Files are loaded
+        # Show the User which Files are loaded
         self.load1 = Label(self.parent, textvariable=loadT1).pack()
         self.load2 = Label(self.parent, textvariable=loadT2).pack()
         self.load3 = Label(self.parent, textvariable=loadW).pack()
         self.load4 = Label(self.parent, textvariable=loadV).pack()
-        
         
         # The second panel holds controls
         self.player = None
         self.videopanel = ttk.Frame(self.parent)
         self.canvas = Canvas(self.videopanel).pack(fill=BOTH, expand=1)
         self.videopanel.pack(fill=BOTH, expand=1)
-
+        
+        #Building the control panel
         ctrlpanel = ttk.Frame(self.parent)
         l = Label(ctrlpanel, text="                         ")
         pause = ttk.Button(ctrlpanel, text="Pause", command=self.OnPause)
@@ -126,6 +124,8 @@ class Player(Frame):
         stop.pack(side=LEFT)
         l.pack(side=LEFT)
         volume.pack(side=LEFT)
+        
+        #Building volume slider
         self.volume_var = IntVar()
         self.volume_var.set(100)
         self.volslider = Scale(ctrlpanel, variable=self.volume_var, command=self.volume_sel,
@@ -136,6 +136,7 @@ class Player(Frame):
         l1 = Label(self.parent, text="")
         l1.pack(side=BOTTOM)
 
+        #Building progress bar
         ctrlpanel2 = ttk.Frame(self.parent)
         self.scale_var = DoubleVar()
         self.timeslider_last_val = ""
@@ -172,15 +173,10 @@ class Player(Frame):
         # Set the window id where to render VLC's video output
         if platform.system() == 'Windows':
             self.player.set_hwnd(self.GetHandle())
-            # print("win")
         else:
             self.player.set_xwindow(self.GetHandle())  # this line messes up windows
-            # print("win")
-
+            
         self.OnPlay()
-        # self.player.audio_set_volume(100)
-            # set the volume slider to the current volume
-            # self.volslider.SetValue(self.player.audio_get_volume() / 2)
         self.volslider.set(100)
 
     def OnPlay(self):
@@ -299,22 +295,22 @@ class but:
         global gridi
         global gridj
         global excelFile
-        #print(self.type)
+        # print(self.type)
         if self.type == "1":
             b = Button(
-                master, text = key, command = lambda: self.createEntry(excelFile,self.time, self.time),
-                height = 2, width =  4
+                master, text=key, command=lambda: self.createEntry(excelFile, self.time, self.time),
+                height=2, width=4
                 )
         else:
             b = Checkbutton(
-                master, text = key, command = lambda: self.createEntry(excelFile,self.time, self.time),
-                height = 2, width = 4, indicatoron = 0
+                master, text=key, command=lambda: self.createEntry(excelFile, self.time, self.time),
+                height=2, width=4, indicatoron=0
                 )
 
-        b.grid(row = gridi, column = (gridj%10))
-        #print(gridi)
+        b.grid(row=gridi, column=(gridj % 10))
+        # print(gridi)
         gridj += 1
-        if (gridj%10) == 0:
+        if (gridj % 10) == 0:
             gridi += 1
 
     def createEntry(self, file, time, time2):
@@ -322,34 +318,34 @@ class but:
             wb = load_workbook(file)
             ws = wb.active
             index = ws.max_row + 1
-            ws.cell(row = index, column = 1).value = self.observed
-            ws.cell(row = index, column = 2).value = self.key
-            ws.cell(row = index, column = 3).value = self.name
-            ws.cell(row = index, column = 4).value = getTime(self.player, 1)
-            ws.cell(row = index, column = 5).value = ""
-            ws.cell(row = index, column = 6).value = getTime(self.player, 2)
-            ws.cell(row = index, column = 7).value = ""
+            ws.cell(row=index, column=1).value = self.observed
+            ws.cell(row=index, column=2).value = self.key
+            ws.cell(row=index, column=3).value = self.name
+            ws.cell(row=index, column=4).value = getTime(self.player, 1)
+            ws.cell(row=index, column=5).value = ""
+            ws.cell(row=index, column=6).value = getTime(self.player, 2)
+            ws.cell(row=index, column=7).value = ""
             wb.save(file)
         else:
             if self.active == 0:
-                self.time = getTime(self.player,1)
-                self.time3 = getTime(self.player,2)
+                self.time = getTime(self.player, 1)
+                self.time3 = getTime(self.player, 2)
                 self.active = 1
             else:
-                self.time2 = getTime(self.player,1)
-                self.time4 = getTime(self.player,2)
+                self.time2 = getTime(self.player, 1)
+                self.time4 = getTime(self.player, 2)
                 self.active = 0
                 wb = load_workbook(file)
                 ws = wb.active
                 index = ws.max_row + 1
-                ws.cell(row = index, column = 1).value = self.observed
-                ws.cell(row = index, column = 2).value = self.key
-                ws.cell(row = index, column = 3).value = self.name
-                ws.cell(row = index, column = 4).value = self.time
-                ws.cell(row = index, column = 5).value = self.time2
-                ws.cell(row = index, column = 6).value = self.time3
-                ws.cell(row = index, column = 7).value = self.time4
-                ws.cell(row = index, column = 8).value = (self.time4 - self.time3)
+                ws.cell(row=index, column=1).value = self.observed
+                ws.cell(row=index, column=2).value = self.key
+                ws.cell(row=index, column=3).value = self.name
+                ws.cell(row=index, column=4).value = self.time
+                ws.cell(row=index, column=5).value = self.time2
+                ws.cell(row=index, column=6).value = self.time3
+                ws.cell(row=index, column=7).value = self.time4
+                ws.cell(row=index, column=8).value = (self.time4 - self.time3)
                 wb.save(file)
 
 
@@ -458,6 +454,7 @@ def resume(master, file1, file2, file3, file4):
     trim = os.path.basename(vidFile)
     file4.set("Video File: " + trim)        
 
+
     # Read a project file and load sub-files into memory
 def loadProj(master, file1, file2, file3, file4):
     projFile = askopenfilename(initialdir="./Projects", title="Select a Project")
@@ -483,6 +480,7 @@ def loadProj(master, file1, file2, file3, file4):
     file3.set("Workbook: " + trim)
     trim = os.path.basename(vidFile)
     file4.set("Video File: " + trim)
+
 
     # Query user for project name and pass name to projSave
 def saveProj(master):
@@ -647,6 +645,7 @@ def loadExcel(master, file):
     trim = os.path.basename(excelFile)
     file.set("Workbook: " + trim)
 
+
     # Creates newExcel string for the init function 
 def newExcel(input, pop):
     # Generating Blank Workbook
@@ -693,21 +692,21 @@ def createExcel(master):
 def init(file):
     wb = load_workbook(file)
     ws = wb.active
-    ws.cell(row = 2, column = 1).value = "Observed"
+    ws.cell(row=2, column=1).value = "Observed"
     ws.column_dimensions["A"].width = 20
-    ws.cell(row = 2, column = 2).value = "ID"
+    ws.cell(row=2, column=2).value = "ID"
     ws.column_dimensions["B"].width = 8
-    ws.cell(row = 2, column = 3).value = "Behavior Name"
+    ws.cell(row=2, column=3).value = "Behavior Name"
     ws.column_dimensions["C"].width = 40
-    ws.cell(row = 2, column = 4).value = "Time of Onset"
+    ws.cell(row=2, column=4).value = "Time of Onset"
     ws.column_dimensions["D"].width = 15
-    ws.cell(row = 2, column = 5).value = "Time of Offset"
+    ws.cell(row=2, column=5).value = "Time of Offset"
     ws.column_dimensions["E"].width = 15
-    ws.cell(row = 2, column = 6).value = "Onset in Secs"
+    ws.cell(row=2, column=6).value = "Onset in Secs"
     ws.column_dimensions["F"].width = 15
-    ws.cell(row = 2, column = 7).value = "Offset in Secs"
+    ws.cell(row=2, column=7).value = "Offset in Secs"
     ws.column_dimensions["G"].width = 15
-    ws.cell(row = 2, column = 8).value = "Duration in Secs"
+    ws.cell(row=2, column=8).value = "Duration in Secs"
     ws.column_dimensions["H"].width = 15
     wb.save(file)
 
