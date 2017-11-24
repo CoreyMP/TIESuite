@@ -1,4 +1,26 @@
-TIE Suite 1.2 - Change Log
+## TIE Suite 1.3 - Change Loading
+
+Improved UI:
+
+File Manipulation
+- All loading uses open file dialog for streamlined use
+- Added Save and Quit functionality
+-- Updates a resume file, which allows the user to quickly resume the most recently 'Save and Quit''d session
+
+UX Improvement
+- Added volume indicator and smoothed button use.
+- Volume and Slider now start at 100
+- New quick start feature in Resume functionality
+- 1 Minute time stamps shown on progress bar when video is played
+- Active files now display at the top of the application
+
+TIE Coder
+- Now formats Workbooks when initializing them to set the cell widths to something practical
+- Tracks total duration of tracked behavior
+
+
+
+## TIE Suite 1.2 - Change Log
 
 Cleaned up UI:
 
@@ -33,6 +55,6 @@ Resources Folder:
 - Added a resources folder to hold extra files for running the software suite
 
 
-TIE Suite 1.1 - Change Log
+## TIE Suite 1.1 - Change Log
 
 Initial Release

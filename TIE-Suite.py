@@ -128,9 +128,12 @@ class Player(Frame):
         #Building volume slider
         self.volume_var = IntVar()
         self.volume_var.set(100)
-        self.volslider = Scale(ctrlpanel, variable=self.volume_var, command=self.volume_sel,
+        frame1 = ttk.Frame(ctrlpanel)
+        self.volslider = Scale(frame1, variable=self.volume_var, command=self.volume_sel,
                 from_=0, to=100, orient=HORIZONTAL, length=100)
-        self.volslider.pack(side=RIGHT)
+        self.volslider.pack()
+        self.vol = Label(frame1, text='Volume').pack()
+        frame1.pack()
         ctrlpanel.pack(side=BOTTOM)
         
         l1 = Label(self.parent, text="")
@@ -733,4 +736,5 @@ if __name__ == "__main__":
     root.protocol("WM_DELETE_WINDOW", _quit)
     player = Player(root, title="TIE Suite 1.2")
     # show the player window centered and run the application
+    root.bind("<space>", player.OnPause)
     root.mainloop()
