@@ -127,6 +127,7 @@ class Player(Frame):
         l.pack(side=LEFT)
         volume.pack(side=LEFT)
         self.volume_var = IntVar()
+        self.volume_var.set(100)
         self.volslider = Scale(ctrlpanel, variable=self.volume_var, command=self.volume_sel,
                 from_=0, to=100, orient=HORIZONTAL, length=100)
         self.volslider.pack(side=RIGHT)
@@ -139,7 +140,7 @@ class Player(Frame):
         self.scale_var = DoubleVar()
         self.timeslider_last_val = ""
         self.timeslider = Scale(ctrlpanel2, variable=self.scale_var, command=self.scale_sel,
-                from_=0, to=10000, orient=HORIZONTAL, length=500)
+                from_=0, to=10000, orient=HORIZONTAL, length=500, tickinterval=60)
         self.timeslider.pack(side=BOTTOM, fill=X, expand=1)
         self.timeslider_last_update = time.time()
         ctrlpanel2.pack(side=BOTTOM, fill=X)
@@ -180,7 +181,7 @@ class Player(Frame):
         # self.player.audio_set_volume(100)
             # set the volume slider to the current volume
             # self.volslider.SetValue(self.player.audio_get_volume() / 2)
-        self.volslider.set(self.player.audio_get_volume())
+        self.volslider.set(100)
 
     def OnPlay(self):
         """Toggle the status to Play/Pause.
