@@ -1,19 +1,28 @@
 import vlc
 import os
 import sys
+import ctypes
 from Tkinter import *
 import ttk
 from tkFileDialog import *
-# import pathlib
 from threading import Thread, Event
 import time
 import platform
 from openpyxl import *
-# from datetime import datetime
 import pathlib
 from __builtin__ import file
 import tkFileDialog
 from openpyxl.styles.borders import Side
+import py2exe
+
+# Override dll search path.
+ctypes.windll.kernel32.SetDllDirectoryW("C:\Program Files (x86)\VideoLAN\VLC")
+# Init code to load external dll
+ctypes.CDLL('libvlc.dll')
+# ...
+# Restore dll search path.
+ctypes.windll.kernel32.SetDllDirectoryW(sys._MEIPASS)
+
 
 gridi = 0
 gridj = 0
@@ -63,7 +72,7 @@ class Player(Frame):
         loadV = StringVar()
         
         if title == None:
-            title = "Tie Sweet 1.0"
+            title = "Tie Sweet 1.3"
         self.parent.title(title)
 
         # Menu Bar
@@ -527,7 +536,7 @@ def projSave(input, pop):
     # Tkinter interface for TIE Coder -- THIS NEEDS TO BE RENAMED
 def playerInterface(player, observed):
     pop = Tk()
-    pop.title("SweetTie Coder 1.0 - " + observed)
+    pop.title("SweetTie Coder 1.3 - " + observed)
     global themeFile
     global themeFile2
     theme = {}
@@ -539,6 +548,7 @@ def playerInterface(player, observed):
     frame = Frame(pop)
     frame.pack_propagate(0)
     frame.pack()
+    #frame.pack()
     # Setting up button Widgets for container for GUI
     for (key, items) in sorted(theme.iteritems(), key=lambda (x, y):float(x)):
         but(items[0], items[1], items[2], frame, player, observed)
@@ -734,7 +744,6 @@ if __name__ == "__main__":
     # Building main player window
     root.iconbitmap(default='./Resources/Tie.ico')
     root.protocol("WM_DELETE_WINDOW", _quit)
-    player = Player(root, title="TIE Suite 1.2")
+    player = Player(root, title="TIE Suite 1.3")
     # show the player window centered and run the application
-    root.bind("<space>", player.OnPause)
     root.mainloop()
