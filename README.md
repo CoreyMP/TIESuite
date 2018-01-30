@@ -1,4 +1,4 @@
-# TIESuite
+# TIESuite 1.3
 Software Suite for coding behaviour change techniques used in video/audio files taken of interventions.
 
 It is intended for use in research conducted by the McGill University TIE Lab.
