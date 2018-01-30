@@ -13,15 +13,6 @@ import pathlib
 from __builtin__ import file
 import tkFileDialog
 from openpyxl.styles.borders import Side
-import py2exe
-
-# Override dll search path.
-ctypes.windll.kernel32.SetDllDirectoryW("C:\Program Files (x86)\VideoLAN\VLC")
-# Init code to load external dll
-ctypes.CDLL('libvlc.dll')
-# ...
-# Restore dll search path.
-ctypes.windll.kernel32.SetDllDirectoryW(sys._MEIPASS)
 
 
 gridi = 0
