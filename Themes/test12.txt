@@ -1,5 +1,0 @@
-7.6,7.6,Satiation,2
-12.2,12.2,Restructuring the social environment,2
-8.5,8.5,Overcorrection,2
-21.1,21.1,Test,2
-22.2,22.2,TestNewLine,2
