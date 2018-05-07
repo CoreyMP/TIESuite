@@ -1,0 +1,7 @@
+2.7,2.7,Feedback on outcome(s) of behavior,2
+21.1,21.1,Supportive Phrases,2
+8.6,8.6,Generalisation of a target behavior,2
+4.4,4.4,Behavioral experiments,2
+5.5,5.5,Anticipated regret,2
+11.1,11.1,Pharmacological support,2
+11.3,11.3,Conserving mental resources,2
